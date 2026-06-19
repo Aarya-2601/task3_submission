@@ -1,11 +1,9 @@
-\# Word2Vec Skip-Gram Implementation
-
 This repository contains a basic implementation of the Word2Vec model using PyTorch. The code trains word embeddings on a single sentence: the quick brown fox jumped over the lazy dog
 
-\## Prerequisites & Dependencies
-To run this code, you need Python installed along with the \*\*PyTorch\*\* library.
-You can install PyTorch via pip. Run the following command in your terminal:
-\`\`\`bash
+## Prerequisites & Dependencies
+To run this code, you need Python installed along with the **PyTorch** library.
+You can install PyTorch via pip. 
+Run the following command in your terminal:
 pip install torch
 
 How to Run the Code
