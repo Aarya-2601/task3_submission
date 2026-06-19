@@ -1,31 +1,50 @@
-# task3_submission
-# Word2Vec Skip-gram Replication from Scratch
+\# Word2Vec Skip-Gram Implementation
 
-This repository contains an independent, clean-code implementation of the Skip-gram architecture proposed in Mikolov et al.'s seminal paper: *"Efficient Estimation of Word Representations in Vector Space"*.
+This repository contains a basic implementation of the Word2Vec model using PyTorch. The code trains word embeddings on a single sentence: the quick brown fox jumped over the lazy dog
 
----
-
-## 1. Project Overview
-This project replicates the core log-linear architecture of the Word2Vec Skip-gram model using PyTorch. The model maps discrete text tokens into a continuous vector space where words sharing similar contextual environments gravitate toward similar coordinates. 
-
-To maintain strict alignment with the assignment's **Implementation Fidelity** guidelines, this project avoids high-level machine learning wrappers or pre-trained parameters. The tokenizer, sliding-window data processor, dictionary lookup structures, and neural embedding layers are all written entirely from scratch.
-
----
-
-## 2. Getting Started
-
-### Prerequisites & Dependencies
-This project requires Python 3 and PyTorch. You do not need a GPU; the baseline script is fully optimized to run efficiently on a standard laptop CPU.
-
-Install PyTorch using pip:
-```bash
+\## Prerequisites & Dependencies
+To run this code, you need Python installed along with the \*\*PyTorch\*\* library.
+You can install PyTorch via pip. Run the following command in your terminal:
+\`\`\`bash
 pip install torch
 
-What to Expect (Outputs)
-When you execute the script, the following three phases will run sequentially in your console:
+How to Run the Code
+-------------------
 
-Vocabulary Building & Tokenization: The text string is cleaned, broken into unique tokens, and indexed into local word-to-index (w2i) and index-to-word (i2w) dictionaries.
+1.  Copy the Python code provided in the script.
+2.  Save it to a file named word2vec.py.    
+3.  Open your terminal or command prompt, navigate to the folder where you saved the file, and run: python word2vec.py
+    
 
-Training Iteration Logs: The training loop runs for 100 epochs, printing an average cross-entropy convergence loss every 20 epochs. You will see the loss score steadily decrease over time.
+Technical Terms Explained Simply
+--------------------------------
 
-Fidelity Verification: Upon training completion, the program prints specific target keywords along with the absolute geometric magnitude (vector norm) of their newly trained continuous coordinate tensors.
+*   **Tokenization:** Computers cannot read continuous sentences like humans. Tokenization is the process of breaking a raw string of text into individual pieces, or tokens(lowercase words).
+    
+*   **Vocabulary:** A unique list of all the distinct words found in the text, sorted by how often they appear. The vocab size is just the total number of unique words.
+    
+*   **Word Embeddings:** It is similar to giving every word its own multi-dimensional vector system. A word embedding is a vector that represents a word. Words that share similar contexts will slowly drift closer together in this mathematical space during training.
+    
+*   **Embedding Dimension:** The number of coordinates we use to describe a single word. Here, every word is represented by a list of 10 numbers.
+    
+*   **Skip-Gram Architecture:** A strategy where we feed the model a single target word and ask it to guess the words next to it.
+    
+*   **Epoch:** One complete pass where the model looks at every single word-context pair in our dataset exactly once.
+    
+
+**What the Code Does**
+----------------------
+
+**Prepares the Text:** It breaks the sentence down into individual lowercase tokens and builds a small vocabulary.
+
+*   **Creates Training Pairs:** It uses a sliding window of 2 words. For every word, it pairs it up with its neighboring words.
+    
+*   **Trains the Model:** It passes the center words into a neural network to predict the surrounding context words. Over 100 epochs, the network learns to group related words closer together in a 10-dimensional space.
+    
+*   **Outputs the Vectors:** Finally, it gives out the learned embedding vectors for a few sample words and measures their mathematical length.
+    
+
+**What to Expect**
+------------------
+
+It is expected that when we run the script, we should see the training loss decrease every 20 epochs, followed by the final word vector statistics.
