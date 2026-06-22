@@ -33,11 +33,11 @@ Technical Terms Explained Simply
 **What the Code Does**
 ----------------------
 
-**Prepares the Text:** It breaks the sentence down into individual lowercase tokens and builds a small vocabulary.
+**Prepares the Text:** It takes the dataset and breaks it down into individual lowercase tokens and builds a small vocabulary.
 
 *   **Creates Training Pairs:** It uses a sliding window of 2 words. For every word, it pairs it up with its neighboring words.
     
-*   **Trains the Model:** It passes the center words into a neural network to predict the surrounding context words. Over 100 epochs, the network learns to group related words closer together in a 10-dimensional space.
+*   **Trains the Model:** It passes the center words into a neural network to predict the surrounding context words. Over 10 epochs, the network learns to group related words closer together in a 10-dimensional space.
     
 *   **Outputs the Vectors:** Finally, it gives out the learned embedding vectors for a few sample words and measures their mathematical length.
     
@@ -45,4 +45,4 @@ Technical Terms Explained Simply
 **What to Expect**
 ------------------
 
-It is expected that when we run the script, we should see the training loss decrease every 20 epochs, followed by the final word vector statistics.
+It is expected that when we run the script, we should see the training loss decrease every 5 epochs, followed by the final word vector statistics.
